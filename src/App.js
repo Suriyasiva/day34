@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import NavigationBar from "./Components/NavigationBar";
+import Create from "./Components/Create";
+import StudentList from "./Components/StudentList";
+import Editdata from "./Components/Editdata";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <BrowserRouter>
+        <div className="container-fluid">
+          <div className="row">
+            <div className="col-sm-2 navigationbar">
+              <NavigationBar />
+            </div>
+            <div className="col-sm-10">
+              <Routes>
+                <Route path="/" element={<StudentList />} />
+                <Route path="/create" element={<Create />} />
+                <Route path="/editStd/:id" element={<Editdata />} />
+              </Routes>
+            </div>
+          </div>
+        </div>
+      </BrowserRouter>
+    </>
   );
 }
 
 export default App;
+{
+  /* */
+}
